@@ -14,12 +14,17 @@ PHP 8, composer
 ## Install
 
 `$ composer install`
+
 `$ cp .env.example .env`
-Edit .env
-make sure 'storage' dir is writable by webserver
+
+Edit .env, make sure 'storage' dir is writable by webserver
+
 `$ php artisan optimize`
+
 `$ php artisan route:clear`
+
 `$ php artisan generate:key`
+
 `$ php artisan cache:clear`
 
 Configure nginx as per https://laravel.com/docs/8.x/deployment#nginx
