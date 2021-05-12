@@ -4,6 +4,9 @@
 <head>
 <title>@yield('title')</title>
 <meta http-equiv="Cache-Control" content="max-age=1800"/>
+<style>
+@yield('css')
+</style>
 </head>
 <body>
 @section('body')
