@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'tests')
+@section('title', 'out')
 
 @section('body')
 <a href="{{route('weather.index')}}">MeteoLT</a><br/>
