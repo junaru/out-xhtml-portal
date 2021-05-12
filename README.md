@@ -5,7 +5,7 @@ No caching, every page triggers an api request.
 
 ## Why ?
 
-So while hiking i dont need a smartphone and powerbank and still get weather forecasts via $15 feature phone (alcatel 1066d) that weights 60 grams.
+So while hiking i can check weather forecasts and news via a $15 WAP 2.0 capable featurephone.
 
 ##  Requierments
 
@@ -17,21 +17,24 @@ PHP 8, composer
 
 `$ cp .env.example .env`
 
-Edit .env, make sure 'storage' dir is writable by webserver
+* Edit .env, set APP_USER_AGENT with your contacts 
+* Make sure 'storage' dir is writable by webserver
 
 `$ php artisan optimize`
 
-`$ php artisan route:clear`
-
 `$ php artisan generate:key`
 
+`$ php artisan route:clear`
+
 `$ php artisan cache:clear`
+
+`$ php artisan config:clear`
 
 Configure nginx as per https://laravel.com/docs/8.x/deployment#nginx
 
 ## Why is the template code so badly indented
 
-Because i cant be bothered to install a minifier
+Because i cant be bothered to install a minifier (yet)
 
 ## Why is the output so ugly
 
