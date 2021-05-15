@@ -44,8 +44,6 @@ class LRT
 
     public function getArticle($id)
     {
-        $json = null;
-
         $lrt_article = LrtArticle::where('article_id', '=', $id)->first();
 
         if ($lrt_article) {
@@ -54,14 +52,15 @@ class LRT
         } else {
             $jr = new JSONResponse("https://www.lrt.lt/api/json/article/" . $id);
             $json = $jr->getJson();
-
-            $lrt_article = new LrtArticle();
-            $lrt_article->article_id = $id;
-            $lrt_article->contents = $jr->getResponse();
-            $lrt_article->save();
+            
+            if (isset($json->article)) {
+                $lrt_article = new LrtArticle();
+                $lrt_article->article_id = $id;
+                $lrt_article->contents = $jr->getResponse();
+                $lrt_article->save();
+            }
         }
         
-        // TODO: return mock if response wasnt valid json
         return $json->article;
     }
 }
