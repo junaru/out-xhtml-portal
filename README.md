@@ -19,10 +19,13 @@ PHP 8, composer
 
 * Edit .env, set APP_USER_AGENT with your contacts 
 * Make sure 'storage' dir is writable by webserver
+* Configure database and its credentials
 
 `$ php artisan optimize`
 
 `$ php artisan generate:key`
+
+`$ php artisan migrate`
 
 `$ php artisan route:clear`
 
