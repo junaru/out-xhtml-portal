@@ -7,11 +7,12 @@ class JSONResponse
 {
     private $url;
     private $json;
+    private $response;
 
     public function __construct($url)
     {
         $this->url = $url;
-        $response = null;
+        $this->response = null;
 
         $options  = array(
             'http' => array(
@@ -20,11 +21,11 @@ class JSONResponse
         );
         $context  = stream_context_create($options);
         try {
-            $response = file_get_contents($url, false, $context);
+            $this->response = file_get_contents($url, false, $context);
         } catch (\ErrorException $e) {
         }
-        if ($response !== null ) {
-            $this->json = json_decode($response);
+        if ($this->response !== null ) {
+            $this->json = json_decode($this->response);
         }
     }
     
@@ -33,4 +34,13 @@ class JSONResponse
         return $this->json;
     }
 
+    public function setJson($json)
+    {
+        $this->json = $json;
+    }
+
+    public function getResponse()
+    {
+        return $this->response;
+    }
 }
